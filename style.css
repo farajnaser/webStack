@@ -1,0 +1,1183 @@
+:root {
+    --bg-black: #050505;
+    --bg-dark-grey: #1a1a1a;
+    /* For about section */
+    --text-white: #ffffff;
+    --text-grey: #a0a0a0;
+    --font-primary: 'Inter', sans-serif;
+    --border-light: #e5e5e5;
+    --border-dark: #333333;
+    --card-radius: 24px;
+    --page-margin: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    background-color: white;
+    /* Default white, specific sections are dark */
+    color: #111;
+    overflow-x: hidden;
+    /* The page background appears in the gaps */
+    padding-top: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+/* Global Container for Inner Content */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Internal spacing */
+}
+
+/* --- LAYOUT UTILS (The "Boxed" Look) --- */
+/* Apply to all major blocks to give them the 'floating card' effect */
+.header,
+section,
+.footer {
+    width: calc(100% - (var(--page-margin) * 2));
+    max-width: 1600px;
+    /* Optional cap */
+    margin: 0 auto 20px auto;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    /* Clips the background to radius */
+}
+
+/* --- BUTTONS --- */
+.btn-pill-black {
+    background: black;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.btn-pill-black:hover {
+    background: #333;
+}
+
+/* --- HEADER --- */
+.header {
+    background: white;
+    /* Header card is white */
+    padding: 20px 0;
+    position: relative;
+    /* Scrolls away (Not Sticky) */
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Invert logo for dark footer to make it white */
+.footer .logo-icon-img {
+    filter: brightness(0) invert(1);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-text span:first-child {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+}
+
+.logo-sub {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: #555;
+    font-weight: 600;
+}
+
+.nav-list {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+.mobile-toggle {
+    display: none;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: black;
+    color: white;
+    padding: 100px 0 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 500px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    /* Slightly smaller to fit "actually work" */
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.hero-title strong {
+    font-weight: 700;
+}
+
+.hero-branding-bottom {
+    margin-top: auto;
+    padding-top: 60px;
+}
+
+.branding-small {
+    font-size: 0.9rem;
+    color: #aaa;
+    max-width: 400px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.branding-large {
+    font-size: 5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.hero-floating-group {
+    position: relative;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-hero-floating {
+    background: white;
+    color: black;
+    padding: 16px 48px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    z-index: 5;
+    margin-bottom: -25px;
+    /* Pull into the card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.hero-card-list {
+    background: #e0e0e0;
+    /* Light grey card */
+    color: black;
+    padding: 50px 24px 24px;
+    /* Top padding for button */
+    border-radius: 20px;
+    width: 100%;
+}
+
+.action-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 8px;
+    border-bottom: 1px solid #ccc;
+    /* Separators */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-list li:last-child {
+    border-bottom: none;
+}
+
+.action-list li:hover {
+    padding-left: 14px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.hero-bg-streaks {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    background: url('https://img.freepik.com/free-vector/abstract-colorful-flow-shapes-background_23-2148258055.jpg') center/cover;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+    z-index: 1;
+    mask-image: linear-gradient(to top, black, transparent);
+    pointer-events: none;
+}
+
+.hover-scale-small {
+    transition: transform 0.2s ease;
+}
+
+.hover-scale-small:hover {
+    transform: scale(1.02);
+}
+
+/* --- ABOUT SECTION --- */
+.about {
+    background: black;
+    color: white;
+    padding: 80px 0 120px;
+}
+
+.section-top-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    margin-bottom: 80px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.label-dot {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.about-text-sc {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: #ccc;
+    max-width: 900px;
+}
+
+.about-text-sc strong {
+    color: white;
+    font-weight: 600;
+}
+
+.stats-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.stat-card-white {
+    background: white;
+    color: black;
+    padding: 40px;
+    border-radius: 12px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-card-grey {
+    background: #888;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.stat-val {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.align-right {
+    text-align: right;
+    align-self: flex-end;
+}
+
+/* --- SERVICES SECTION (Light BG) --- */
+.services {
+    background: #f9f9f9;
+    /* Off-white card */
+    padding: 80px 0;
+    color: black;
+}
+
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+}
+
+.deco-symbols {
+    letter-spacing: 8px;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.section-label-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.label-dot-black {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+}
+
+.services-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    /* Added inner padding */
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 16px;
+    /* Added Radius */
+}
+
+.svc-num {
+    font-size: 1.2rem;
+    width: 100px;
+}
+
+.svc-name {
+    font-size: 1.5rem;
+    flex-grow: 1;
+}
+
+.svc-center-content {
+    flex-grow: 1;
+}
+
+.svc-expanded-area {
+    display: none;
+    margin-top: 30px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.service-row:not(.active) .svc-expanded-area {
+    display: none;
+}
+
+.svc-img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.svc-checklist li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.circle-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.circle-arrow-black {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* --- PROJECTS (Stacked) --- */
+.projects {
+    background: #1a1a1a;
+    padding: 100px 0;
+    color: white;
+}
+
+.project-stack-container {
+    position: relative;
+    /* Reserve space for the "stack" effect visually */
+    margin-top: 60px;
+    padding-top: 40px;
+}
+
+.stack-card {
+    border-radius: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    transition: 0.5s ease-in-out;
+}
+
+/* Stack Background Cards */
+.stack-3 {
+    top: 0;
+    width: 94%;
+    /* 03 */
+    height: 100%;
+    background: #2a2a2a;
+    z-index: 1;
+    min-height: 500px;
+    border: 1px solid #333;
+}
+
+.stack-2 {
+    top: 20px;
+    width: 97%;
+    /* 02 */
+    background: #333;
+    z-index: 2;
+    height: 100%;
+    min-height: 500px;
+    border: 1px solid #444;
+}
+
+/* The Active Card isn't absolute so it defines the section height? 
+   No, for a true stack, usually absolute is easier or grid. 
+   Let's make sure the container has height. 
+   Better: Make the active card relative, others absolute behind it.
+*/
+.stack-card.active {
+    position: relative;
+    top: 40px;
+    /* Offset from top to show back cards */
+    background: white;
+    color: black;
+    z-index: 3;
+    padding: 60px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    min-height: 600px;
+}
+
+.project-card-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.project-num-pill {
+    border: 1px solid #333;
+    padding: 8px 24px;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.project-meta {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.project-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.project-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.btn-case-study {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+.project-nav-row {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-nav-black {
+    background: black;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-nav-white {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.project-image-area {
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- ANIMATIONS & HOVER --- */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Apply generic hover to clickable items */
+a,
+button,
+/* Apply generic hover to clickable items */
+a,
+button,
+.service-row,
+.faq-head {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-pill-black:hover,
+.btn-pc-black:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-pill-white:hover,
+.btn-pc-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-row:hover {
+    background: #f0f0f0;
+    transform: translateX(10px);
+    /* Smoother slide than padding */
+}
+
+
+/* Scroll Animation Classes (to be triggered by JS Intersection Observer) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE PROJECTS --- */
+@media (max-width: 900px) {
+    .project-card-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-stack-container {
+        margin-top: 20px;
+    }
+
+    .stack-card {
+        width: 100% !important;
+    }
+
+    .stack-2,
+    .stack-3 {
+        display: none;
+    }
+
+    /* Hide stack on mobile for simplicity */
+    .stack-card.active {
+        padding: 24px;
+        top: 0;
+    }
+}
+
+/* --- TESTIMONIALS (Light) --- */
+.testimonials {
+    padding: 80px 0;
+    background: #f9f9f9;
+    /* Off-white card */
+    color: black;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 24px;
+}
+
+/* Layout: 
+   Card 1 (Left)
+   Card 2 (Middle Top)
+   Photo (Middle Bottom) - No, let's look at image. 
+   Image: Top Left big card, Top Right card, Bottom Right Photo.
+   Wait, the user image shows:
+   Left Col: 1 card
+   Center Col: 1 card + 1 card
+   Right Col: 1 big photo
+   Actually let's just do a simple 2 row grid that looks chaotic/masonry
+*/
+.masonry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 24px;
+}
+
+.t-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.t-photo-card {
+    background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=400&q=80') center/cover;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.play-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.t-author {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.t-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* --- TEAM (Dark) --- */
+.team {
+    background: #1a1a1a;
+    color: white;
+    padding: 80px 0;
+}
+
+.team-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.team-desc {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #ccc;
+}
+
+.team-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.team-pic img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* --- PRICING (Dark) --- */
+.pricing {
+    background: #1a1a1a;
+    color: white;
+    padding: 80px 0;
+}
+
+.pricing-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.p-card {
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.p-card.dark {
+    background: #252525;
+    border: 1px solid #333;
+}
+
+.p-card.white {
+    background: white;
+    color: black;
+}
+
+.pc-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.pc-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.pc-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+}
+
+.pc-sub {
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.p-card.white .pc-sub {
+    color: #666;
+}
+
+.pc-features p {
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.pc-features ul li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.btn-pc-white {
+    width: 100%;
+    padding: 16px;
+    border-radius: 40px;
+    background: white;
+    color: black;
+    border: none;
+    margin-top: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-pc-black {
+    width: 100%;
+    padding: 16px;
+    border-radius: 40px;
+    background: black;
+    color: white;
+    border: none;
+    margin-top: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- FAQ (Light) --- */
+.faq {
+    background: #f9f9f9;
+    padding: 80px 0;
+    color: black;
+}
+
+.faq-row {
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 30px 0;
+}
+
+.faq-num {
+    width: 100px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.faq-content {
+    flex-grow: 1;
+}
+
+.faq-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    color: #555;
+    line-height: 1.5;
+    transition: 0.3s;
+}
+
+.faq-body.show {
+    max-height: 100px;
+    margin-top: 16px;
+}
+
+/* --- FOOTER (New Contact Style) --- */
+.footer {
+    background: #1A1A1A;
+    color: white;
+    padding: 80px 0 20px;
+}
+
+.footer-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.logo-area-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.logo-text-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text-footer span:first-child {
+    font-weight: 700;
+}
+
+.logo-text-footer .logo-sub {
+    color: #888;
+}
+
+.footer-heading {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.footer-right-form {
+    padding-top: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom-color: white;
+}
+
+/* Footer Bottom Nav */
+.footer-bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-menu a {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.footer-menu a:hover {
+    color: white;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.legal-links a {
+    margin-right: 24px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    /* Recover full width on mobile for better usability, usually */
+    .header,
+    section,
+    .footer {
+        width: 100%;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-list {
+        gap: 16px;
+        font-size: 0.9rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-card-list {
+        margin-top: 0;
+        justify-self: center;
+    }
+
+    .section-top-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stats-grid-new {
+        grid-template-columns: 1fr;
+    }
+
+    .masonry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-cards-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-heading {
+        font-size: 2.5rem;
+    }
+
+    .footer-bottom-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
